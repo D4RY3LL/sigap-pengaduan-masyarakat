@@ -1,22 +1,23 @@
 # SIGAP — Sistem Informasi Pengaduan Masyarakat
 
-SIGAP adalah aplikasi web berbasis Laravel yang dibuat untuk membantu proses penyampaian dan pengelolaan pengaduan masyarakat secara terstruktur.
+SIGAP adalah aplikasi web berbasis Laravel yang dikembangkan untuk membantu proses penyampaian dan pengelolaan pengaduan masyarakat secara terstruktur.
 
-Aplikasi ini memiliki dua jenis pengguna, yaitu **masyarakat** dan **admin**. Masyarakat dapat membuat laporan pengaduan lengkap dengan deskripsi, foto, dan lokasi kejadian. Admin dapat melihat laporan masuk, memperbarui status laporan, memberikan tanggapan, serta mengunduh laporan dalam format PDF.
+Aplikasi memiliki dua jenis pengguna, yaitu **Masyarakat** dan **Admin**. Masyarakat dapat membuat laporan pengaduan lengkap dengan deskripsi, foto, dan lokasi kejadian, sedangkan admin dapat mengelola laporan, memberikan tanggapan, memperbarui status, serta menghasilkan laporan dalam format PDF.
 
-## Fitur Utama
+## Features
 
-- Login dan registrasi pengguna
+- Authentication dan registrasi pengguna
 - Role-based access untuk Admin dan Masyarakat
 - Form pengaduan masyarakat
-- Upload foto laporan
-- Penentuan lokasi kejadian menggunakan Leaflet
+- Upload gambar laporan
+- Integrasi lokasi menggunakan Leaflet
+- Reverse geocoding lokasi
 - Riwayat laporan pengguna
 - Status laporan: Menunggu, Diproses, dan Selesai
-- Dashboard admin
+- Dashboard administrator
 - Pengelolaan laporan masuk
 - Tanggapan admin terhadap laporan
-- Timeline/status respons
+- Status dan timeline response
 - Export laporan ke PDF
 - Progressive Web App (PWA)
 
@@ -34,36 +35,41 @@ Aplikasi ini memiliki dua jenis pengguna, yaitu **masyarakat** dan **admin**. Ma
 ## Screenshots
 
 ### Landing Page
-![Landing Page](docs/screenshots/sigap-home.png)
 
-### Login
-![Login](docs/screenshots/sigap-login.png)
+![SIGAP Landing Page](docs/screenshots/sigap-home.png)
 
-### Form Pengaduan & Riwayat Laporan
-![Form Pengaduan](docs/screenshots/sigap-report.png)
+### Authentication
+
+![SIGAP Login](docs/screenshots/sigap-login.png)
+
+### Form Pengaduan & Location
+
+![SIGAP Report Form](docs/screenshots/sigap-report.png)
 
 ### Admin Dashboard
-![Admin Dashboard](docs/screenshots/sigap-admin.png)
+
+![SIGAP Admin Dashboard](docs/screenshots/sigap-admin.png)
 
 ### Database Structure
-![Database Structure](docs/screenshots/sigap-database.png)
 
-## Struktur Database
+![SIGAP Database](docs/screenshots/sigap-database.png)
 
-SIGAP menggunakan relational database dengan tabel utama:
+## Database
 
-- `users`
-- `reports`
-- `responses`
+Database utama aplikasi menggunakan beberapa tabel yang saling berelasi:
+
+- `users` — menyimpan data pengguna dan role
+- `reports` — menyimpan laporan pengaduan
+- `responses` — menyimpan tanggapan terhadap laporan
 
 Relasi utama:
 
-- User dapat membuat banyak laporan.
-- Report dimiliki oleh satu user.
-- Report dapat memiliki tanggapan dari admin.
-- Response terhubung dengan report dan user/admin yang memberikan tanggapan.
+- User dapat membuat banyak laporan
+- Setiap laporan dimiliki oleh satu user
+- Setiap laporan dapat memiliki tanggapan
+- Response terhubung dengan report dan user yang memberikan tanggapan
 
-## Instalasi
+## Installation
 
 Clone repository:
 
